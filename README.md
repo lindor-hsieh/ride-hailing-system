@@ -1,15 +1,14 @@
 🚖 Smart City Ride-Hailing System (智慧城市叫車系統)
-Course: Network Systems Programming and Security Final Project
+Course: Operating Systems (OS) Final Project
 
 Language: C (Linux System Programming)
 
 Architecture: Multi-Process Server (Preforking) + Multi-Threaded Client
 
-📖 Introduction
+📖 專案簡介 (Introduction)
 本專案實作了一個高併發、高可靠性的模擬叫車系統伺服器。系統採用 Linux 多行程架構 (Multi-Process Architecture) 設計，利用 IPC (Shared Memory & Mutex) 解決競爭問題，並實作了自定義的二進位通訊協定與安全加密層。
 
-系統能模擬真實世界的商業邏輯，包含司機的 A 路徑規劃*、動態定價 (Surge Pricing) 以及 VIP 優先媒合 機制，並具備防禦 DoS 攻擊與資料竄改的能力。
-
+系統能模擬真實世界的業務邏輯，包含司機的 A 路徑規劃*、動態定價 (Surge Pricing) 以及 VIP 優先媒合 機制，並具備防禦 DoS 攻擊與資料竄改的能力。
 
 ✨ 核心功能 (Key Features)
 1. 系統架構 (System Architecture)
@@ -19,7 +18,7 @@ High Concurrency: 支援 100+ 並發連線的壓力測試，確保在高負載�
 
 IPC Mechanism: 使用 mmap (POSIX Shared Memory) 共享全域司機狀態與統計數據，並透過 pthread_mutex (Process-Shared) 實現跨行程的互斥鎖定。
 
-2. 商業邏輯 (Business Logic)
+2. 業務邏輯 (Business Logic)
 Matchmaking Algorithms:
 
 Basic Mode: 基於歐幾里得距離的最近司機搜尋。
@@ -41,10 +40,11 @@ Authentication: 實作 Diffie-Hellman Key Exchange 握手協定，動態協商 S
 
 Integrity: 封包表頭包含 Checksum 校驗，防止傳輸竄改。
 
-Reliability: 具備 DoS Rate Limiting (流量清洗) 與 Graceful Shutdown (資源釋放) 機制
-
+Reliability: 具備 DoS Rate Limiting (流量清洗) 與 Graceful Shutdown (資源釋放) 機制。
 
 📂 檔案結構 (Project Structure)
+Plaintext
+
 .
 ├── src/
 │   ├── client/          # 客戶端程式碼
@@ -66,7 +66,6 @@ Reliability: 具備 DoS Rate Limiting (流量清洗) 與 Graceful Shutdown (資�
 ├── lib/                 # 編譯出的靜態函式庫
 ├── Makefile             # 自動化編譯腳本
 └── README.md
-
 🚀 編譯與執行 (Build & Run)
 1. 環境需求
 GCC Compiler
