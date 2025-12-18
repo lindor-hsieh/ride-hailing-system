@@ -45,7 +45,7 @@ void send_response_packet(int client_fd, char *resp_msg, size_t len, uint16_t op
     resp_header.length = (uint32_t)len;
     resp_header.checksum = calculate_checksum((uint8_t*)resp_msg, len);
 
-    // ★ 使用協商好的 Session Key 加密回覆 (機密性)
+    // 使用協商好的 Session Key 加密回覆 (機密性)
     if (session_key != NULL) {
         rc4_crypt((uint8_t*)resp_msg, len, session_key);
     }
@@ -155,7 +155,7 @@ void handle_client(int client_fd) {
             
             continue; // 握手完成，繼續等待下一個封包 (業務請求)
         }
-
+        
         // 處理叫車請求 (MSG_TYPE_RIDE_REQ) ---
         if (header.type == MSG_TYPE_RIDE_REQ) {
             
@@ -165,8 +165,21 @@ void handle_client(int client_fd) {
                 break;
             }
 
+            // 展示解密前的 亂碼 (Ciphertext)
+        //printf("\033[1;33m[SECURITY] [Proof] Encrypted Data (Ciphertext): ");
+            // 只印前 16 個 Byte 示意即可，避免洗版
+            //for (int i = 0; i < (int)header.length && i < 16; i++) {
+                //printf("%02X ", body[i]);
+            //}
+            //printf("... (RC4 Encrypted)\033[0m\n");
+
             // 網路層職責：使用 Session Key 解密 (機密性)
             rc4_crypt(body, header.length, session_key);
+
+            // 將 binary 轉型回結構，證明解密成功
+            //RideRequestData *req_debug = (RideRequestData *)body;
+            //printf("\033[1;36m[SECURITY] [Proof] Decrypted Data (Plaintext) : ClientID=%d, Type=%d\033[0m\n", 
+                   //req_debug->client_id, req_debug->type);
             
             // 網路層職責：Checksum 驗證 (完整性)
             uint16_t checksum = calculate_checksum(body, header.length);

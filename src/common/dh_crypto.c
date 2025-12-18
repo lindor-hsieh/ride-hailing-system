@@ -6,7 +6,7 @@
 #include <string.h>
 #include <time.h>
 
-// 使用較小的質數與生成元，方便演示且不需大數運算庫
+// 使用較小的質數與生成元
 // P = 2147483647 (Mersenne Prime 2^31 - 1)
 // G = 16807 (7^5, Primitive root modulo P)
 #define DH_PRIME 2147483647L

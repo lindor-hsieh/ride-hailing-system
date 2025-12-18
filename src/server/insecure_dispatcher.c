@@ -105,7 +105,7 @@ void handle_client_insecure(int client_fd) {
         // 🚨 漏洞點 4：移除 Checksum 驗證！(完整性缺失) 🚨
     }
 
-    // F. 分發業務邏輯
+    // F. 分發商業邏輯
     switch (header.opcode) {
         case OP_REQ_RIDE:
             process_ride_request_insecure_wrapper(client_fd, &header, body); 

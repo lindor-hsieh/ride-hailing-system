@@ -42,7 +42,7 @@ typedef struct {
 typedef struct {
     // 1. Process-Shared Mutex (互斥鎖)
     // 用於保護這塊記憶體，防止多個 Dispatcher 同時修改導致 Race Condition
-    pthread_mutex_t mutex
+    pthread_mutex_t mutex;
 
     // 2. 司機狀態陣列
     // 儲存所有司機的位置 (lat, lon)、狀態 (Available/Navigating)、評分與油量
