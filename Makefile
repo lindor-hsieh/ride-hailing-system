@@ -17,7 +17,7 @@ LIB_COMMON = lib/libcommon.a
 COMMON_SRCS = src/common/net_wrapper.c src/common/log_system.c src/common/protocol.c src/common/dh_crypto.c
 COMMON_OBJS = $(COMMON_SRCS:.c=.o)
 
-# Server Core (確保這裡沒有重複的檔案)
+# Server Core 
 SERVER_CORE_SRCS = src/server/coordinator.c src/server/dispatcher.c src/server/insecure_dispatcher.c src/server/ride_service.c src/server/pricing_service.c src/server/resource_service.c src/server/map_monitor.c src/server/dispatch_algorithms.c src/server/pathfinding.c
 SERVER_CORE_OBJS = $(SERVER_CORE_SRCS:.c=.o)
 

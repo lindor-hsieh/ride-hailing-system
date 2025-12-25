@@ -16,7 +16,7 @@ int main() {
     }
 
     SharedState state;
-    // 讀取檔案
+    // read
     if (read(fd, &state, sizeof(SharedState)) != sizeof(SharedState)) {
         printf("Error: File size mismatch. The save file might be corrupted or created by an incompatible version.\n");
         close(fd);

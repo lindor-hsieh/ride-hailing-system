@@ -132,6 +132,9 @@ make
 ```
 
 ## 💻 Usage
+### 🎥 Demo
+![System Demo](./assets/demo.gif)
+
 1. Start the Server
 Run the server with the specified port, number of worker processes, and dispatch mode.
 ```bash
@@ -144,11 +147,14 @@ Run the server with the specified port, number of worker processes, and dispatch
 2. Start a Client
 Run a client to interact with the server.
 ```bash
-# Usage: ./client_app <server_ip> <port> <is_vip>
-# is_vip: 0 = Normal User, 1 = VIP User
+# Usage: ./client_app <server_ip> <port> <client_id>
+# client_id: 1~10 = VIP User, others = Normal User
 
 ./client_app 127.0.0.1 8888 1
 ```
+Server Single Test Result
+![Single Test Result](./assets/single_test_server.png)
+![Single Test Result](./assets/single_test_client.png)
 
 3. Run Stress Test
 Simulate high concurrency to test server stability.
@@ -157,6 +163,21 @@ Simulate high concurrency to test server stability.
 
 ./stress_client 127.0.0.1 8888 100
 ```
+Server Stress Test Result
+![Stress Test Result](./assets/stress_test.png)
+![Stress Test Result](./assets/stress_test_client.png)
+
+4. Dispatching Algo Test
+Compare two dispatching Algo .
+```bash
+# Usage: ./client_app <server_ip> <port> <client_id>
+# client_id: 1~10 = VIP User
+
+./client_app 127.0.0.1 8888 1
+```
+Dispatching Test Result
+![Dispatching Test Result](./assets/basic_algo.png)
+![Dispatching Test Result](./assets/smart_algo.png)
 
 ## 🔧 Technical Details
 Protocol Design

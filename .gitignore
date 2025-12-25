@@ -3,9 +3,10 @@
 src/*/obj/*.o
 
 # 編譯產生的執行檔
-server_app
 client_app
-stress_test
+server_app
+stress_client
+insecure_server
 malicious_client
 
 # 暫存檔或系統檔案
@@ -18,7 +19,7 @@ Thumbs.db
 *.log
 *.dat
 server.dat
-dump_*.txt
+dump_dat
 
 # 如果有 VS Code 設定檔
 .vscode/
