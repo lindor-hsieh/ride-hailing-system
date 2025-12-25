@@ -192,6 +192,8 @@ Negotiation: Server computes Shared Secret & Session Key.
 
 Transport: All subsequent RIDE_REQ packets are encrypted using RC4 with the Session Key.
 
+For a deep dive into the system architecture, implementation details, and performance analysis, please refer to the **[Final Project Report](./docs/Final_Project.pdf)**.
+
 ## 👥 Team
 114368064 謝欣蓉:Core Server Architecture, IPC Management, Ride Matching Logic (Basic/Smart), System Integration
 
