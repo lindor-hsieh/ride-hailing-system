@@ -1,20 +1,24 @@
-# 忽略編譯出來的 Object files
+# 編譯產生的 Object 檔案
 *.o
+src/*/obj/*.o
 
-# 忽略靜態函式庫
-lib/*.a
-
-# 忽略執行檔
+# 編譯產生的執行檔
 server_app
-insecure_server
-stress_client
-single_client
+client_app
+stress_test
 malicious_client
 
-# 忽略資料存檔與日誌
-*.dat
-*.log
-
-# 忽略編輯器暫存檔 (如 Vim 的 swp)
+# 暫存檔或系統檔案
+.DS_Store
+Thumbs.db
 *.swp
+*~
+
+# 專案產生的資料檔或 Log 
+*.log
+*.dat
+server.dat
+dump_*.txt
+
+# 如果有 VS Code 設定檔
 .vscode/

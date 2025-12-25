@@ -89,9 +89,9 @@ void process_ride_request_wrapper(int client_fd, ProtocolHeader *in_header, uint
         return; 
     }
 
-    // 2. 業務處理 (單一呼叫 Service Layer)
+    // 2. 商業處理 (單一呼叫 Service Layer)
     // 注意：handle_ride_request_logic 現在需要處理 VIP 邏輯 (req->type)
-    // 為了相容，我們先假設 logic 函式只看 ID，或者您可以修改 logic 函式傳入 req->type
+    // 為了相容，我們先假設 logic 函式只看 ID，或者可以修改 logic 函式傳入 req->type
     // 這裡演示直接呼叫:
     int result = handle_ride_request_logic(req->client_id, resp_msg, sizeof(resp_msg));
     (void)result; 
@@ -188,10 +188,10 @@ void handle_client(int client_fd) {
                 return; 
             }
 
-            // 分發業務邏輯
+            // 分發商業邏輯
             if (header.opcode == OP_REQ_RIDE) {
                 process_ride_request_wrapper(client_fd, &header, body, session_key);
-                break; // 處理完一個請求後結束 (依您的架構，這裡處理完就斷線)
+                break; // 處理完一個請求後結束 
             }
         }
 
